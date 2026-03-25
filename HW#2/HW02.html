@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #ddd;
+  padding: 6px;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+tr:hover {background-color: #ddd;}
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+ 
+/* ⭐ 自訂 Modal 尺寸，接近全螢幕 */
+.modal-dialog {
+  max-width: 95vw;   /* 寬度 95% 視窗 */
+  height: 95vh;      /* 高度 95% 視窗 */
+  margin: auto;
+}
+ 
+.modal-body {
+  height: calc(95vh - 30px); /* 減掉可能的 padding */
+  padding: 0;
+}
+ 
+.modal-body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+</style>
+ 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+ 
+<body>
+<table id ="csie">
+    <tr>
+        <th>單位</th>
+        <th>class_name</th>
+        <th>instructor</th>
+    </tr>
+    <tr>
+        <td>資工系</td>
+        <td>
+            <button class="btn btn-link text-dark text-decoration-none p-0"
+                onclick="openModal('https://catalog.cgu.edu.tw/coursedata?sectionid=A2337')"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal">
+            物件導向程式設計
+        </button>
+    </td>
+        <td>黃崇源</td>
+    </tr>
+    <tr>
+        <td>資工系</td>
+    <td>
+        <button class="btn btn-link text-dark text-decoration-none p-0"
+              onclick="openModal('https://catalog.cgu.edu.tw/coursedata?sectionid=A2345')"
+              data-bs-toggle="modal"
+              data-bs-target="#myModal">
+        資料庫系統設計
+      </button>
+    </td>
+        <td>趙一平</td>
+    </tr>
+    <tr>
+        <td>資工系</td>
+        <td>
+            <button class="btn btn-link text-dark text-decoration-none p-0"
+                onclick="openModal('https://catalog.cgu.edu.tw/coursedata?sectionid=A2346')"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal">
+            資料結構與演算法(2)
+        </button>
+        </td>
+        <td>趙一平</td>
+    </tr>
+    <tr>
+        <td>資工系</td>
+        <td>
+            <button class="btn btn-link text-dark text-decoration-none p-0"
+                onclick="openModal('https://catalog.cgu.edu.tw/coursedata?sectionid=A2347')"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal">
+            系統程式
+        </td>
+        <td>黃崇源</td>
+    </tr>
+    <tr>
+        <td>資工系</td>
+        <td>
+            <button class="btn btn-link text-dark text-decoration-none p-0"
+                onclick="openModal('https://catalog.cgu.edu.tw/coursedata?sectionid=A2350')"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal">
+            機率與統計
+        </td>
+        <td>呂仁園</td>
+    </tr>
+    <tr>
+        <td>資工系</td>
+        <td>
+            <button class="btn btn-link text-dark text-decoration-none p-0"
+                onclick="openModal('https://catalog.cgu.edu.tw/coursedata?sectionid=A2348')"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal">
+            網頁程式設計
+        </td>
+        <td>吳齊人</td>
+    </tr>
+</table>
+<button onclick="changeresult()">Change</button>
+ 
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-body">
+        <iframe id="frame"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ 
+<script>
+function openModal(url) {
+  document.getElementById('frame').src = url;
+}
+</script>
+<script>
+    function changeresult(){
+        var myTable =document.getElementById("csie");
+        myTable.rows[1].cells[2].innerHTML ="李春良";
+    }
+</script>
+</body>
+</html>
+ 

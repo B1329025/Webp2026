@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>Tree Console</title>
+</head>
+<body>
+
+<script>
+function tree(n) {
+  printTreeTop(n);
+  printTreeBottom(n);
+}
+
+function printTreeTop(n) {
+  for (let i = 1; i <= n; i++) {
+    let spaces = repeatchar(n - i, ' ');
+    let stars = repeatchar(2 * i - 1, '*');
+    console.log(spaces + stars);
+  }
+}
+
+function printTreeBottom(n) {
+  let spaces = repeatchar(n - 1, ' ');
+  let trunkLine = spaces + '*';
+  // 用 repeat 產生 n 行，每行後面加換行符號
+  let trunk = (trunkLine + '\n').repeat(n);
+  console.log(trunk);
+}
+
+function repeatchar(n, char) {
+  let result = '';
+  for (let i = 0; i < n; i++) {
+    result += char;
+  }
+  return result;
+}
+
+// ⭐ 頁面載入時直接執行
+tree(7);
+</script>
+
+</body>
+</html>
+ 

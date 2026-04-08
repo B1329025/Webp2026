@@ -9,7 +9,7 @@ function addfunction(){
 };
 
 function delfunction(){
-    var btn =document.getElementById("btn" +  --count);
+    var btn =document.getElementById("btn_" +  --count);
     console.log(btn);
     document.body.removeChild(btn);
 };

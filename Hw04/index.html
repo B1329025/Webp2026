@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>景點觀光展覽資訊系統</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #f8f9fa; padding-top: 50px; }
+        .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .pagination-info { font-weight: bold; color: #6c757d; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 class="mb-4 text-center">景點觀光展覽資訊</h1>
+
+    <div class="row mb-3 g-2">
+        <div class="col-md-8">
+            <input type="text" id="searchName" class="form-control" placeholder="請輸入名稱關鍵字搜尋...">
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary w-100" id="btnFetch">載入資料</button>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-outline-danger w-100" id="btnClear">清空</button>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table id="csie" class="table table-striped table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th style="width: 40%;">名稱</th>
+                    <th style="width: 40%;">地點</th>
+                    <th style="width: 20%;">票價</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan='3' class='text-center'>請點擊「載入資料」開始</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <div>
+            <button class="btn btn-sm btn-secondary me-2" id="btnPrev" disabled>上一頁</button>
+            <button class="btn btn-sm btn-secondary" id="btnNext" disabled>下一頁</button>
+        </div>
+        <div class="pagination-info">
+            目前第 <span id="currentPage">0</span> 頁 / 總共 <span id="totalPages">0</span> 頁
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+ 

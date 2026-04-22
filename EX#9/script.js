@@ -1,16 +1,13 @@
-
-var dataUrl = 'https://api.unsplash.com/photos?client_id=812193ef71ca946e361ed541979a0cfd91e9419a19235fd05f51ea14233f020a&per_page=30';
-
+var dataUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=ca370d51a054836007519a00ff4ce59e&per_page=10&format=json&nojsoncallback=1';
 
 function add_new_img(dataset) {
     var gal = document.getElementById("gallery");
-    
+
     dataset.forEach(function(item) {
-        console.log(item); 
+        var imgUrl = `https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_q.jpg`;
         
         var img = document.createElement("img");
-
-        img.setAttribute("src", item.urls.small);
+        img.setAttribute("src", imgUrl);
         
         gal.appendChild(img);
     });
@@ -21,7 +18,13 @@ function getimg() {
     xhr.open('GET', dataUrl, true);
     xhr.send();
     xhr.onload = function() {
-        var data =JSON.parse(this.responseText);
-        add_new_img(data);
+        if (xhr.status >= 200 && xhr.status < 400) {
+            var data = JSON.parse(this.responseText);
+            if (data.photos && data.photos.photo) {
+                add_new_img(data.photos.photo);
+            } else {
+                console.error("API 回傳格式不正確或金鑰失效");
+            }
+        }
     };
 }
